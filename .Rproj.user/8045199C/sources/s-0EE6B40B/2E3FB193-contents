@@ -1,0 +1,23 @@
+#----tabla de frecuencia para datos no agrupados----
+#----Numero de transductores de temperatura defectuosa por lote----
+#----Tipo cuantitativa discreta
+#----Nivel: razon----
+
+defectuosos <-c(2,1,2,4,0,1,3,2,0,5,3,3,1,3,2,4,7,0,2,3,0,4,2,1,3,1,1,3,4,1,2,3,2,2,8,4,5,1,3,1,5,0,2,3,2,1,0,6,4,2,1,6,0,3,3,3,6,1,2,3)
+length(defectuosos)
+#----hallar las frecuencias absolutas----
+absolutas <- table(defectuosos); absolutas
+#----convertir en data frame----
+frecuencia <- as.data.frame(absolutas); frecuencia
+
+#----frecuencias relativa----
+porcentaje <- prop.table(absolutas)
+porcentaje <- round(prop.table(absolutas)*100,5); porcentaje
+
+porcentajeData<- as.data.frame(porcentaje); porcentajeData
+
+tabla<- data.frame(absolutas, porcentajeData[2]); tabla
+
+#----cambiar nombre columnas----
+
+colnames(tabla)<-c("Numero de transductores defectuoos", "Numero de lotes", "Porcentaje de lotes"); tabla
